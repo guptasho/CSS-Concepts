@@ -1,0 +1,210 @@
+<html>
+
+<head>
+    <style>
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                border-top-color: #337ab7;
+                /* border-bottom-color: aqua; */
+            }
+            25% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                border-top-color: rgba(51, 122, 183, 0.2);
+                border-right-color: #337ab7
+                /* border-bottom-color: aqua; */
+            }
+            50% {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+                border-right-color: rgba(51, 122, 183, 0.2);
+                border-bottom-color: #337ab7
+            }
+            75% {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+                border-bottom-color: rgba(51, 122, 183, 0.2);
+                border-left-color: #337ab7
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+                border-left-color: rgba(51, 122, 183, 0.2);
+                ;
+                border-top-color: #337ab7;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                /* -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); */
+                border-top-color: #337ab7;
+                border-left-color: rgba(51, 122, 183, 0.2);
+            }
+            25% {
+                /* -webkit-transform: rotate(90deg);
+                transform: rotate(0deg); */
+                border-top-color: rgba(51, 122, 183, 0.2);
+                border-right-color: #337ab7
+                /* border-bottom-color: aqua; */
+            }
+            50% {
+                /* -webkit-transform: rotate(180deg);
+                transform: rotate(180deg); */
+                border-right-color: rgba(51, 122, 183, 0.2);
+                border-bottom-color: #337ab7
+            }
+            75% {
+                /* -webkit-transform: rotate(270deg);
+                transform: rotate(180deg); */
+                border-bottom-color: rgba(51, 122, 183, 0.2);
+                border-left-color: #337ab7
+            }
+            /* 100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+                border-left-color:  rgba(51, 122, 183, 0.2);;
+                border-top-color: #337ab7;
+            } */
+        }
+
+        @-webkit-keyframes pulse {
+            50% {
+                background: #337ab7;
+            }
+        }
+
+        @keyframes pulse {
+            50% {
+                background: #337ab7;
+            }
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+
+
+        .loading {
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            border: 0.25rem solid rgba(51, 122, 183, 0.2);
+            border-top-color: #337ab7;
+            /* border-bottom-color: aqua; */
+            -webkit-animation: spin 2s infinite linear;
+            animation: spin 2s infinite linear;
+        }
+
+        .loading--double {
+            border-style: double;
+            border-width: .5rem;
+        }
+
+        .loading-pulse {
+            position: relative;
+            width: 6px;
+            height: 24px;
+            background: rgba(51, 122, 183, 0.2);
+            -webkit-animation: pulse 750ms infinite;
+            animation: pulse 750ms infinite;
+            -webkit-animation-delay: 250ms;
+            animation-delay: 250ms;
+        }
+
+        .loading-pulse:before,
+        .loading-pulse:after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 16px;
+            width: 6px;
+            background: rgba(51, 122, 183, 0.2);
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-animation: pulse 750ms infinite;
+            animation: pulse 750ms infinite;
+        }
+
+        .loading-pulse:before {
+            left: -12px;
+        }
+
+        .loading-pulse:after {
+            left: 12px;
+            -webkit-animation-delay: 500ms;
+            animation-delay: 500ms;
+        }
+
+        /* shobhit loader */
+
+        .loader-overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: gray;
+            opacity: 0.2;
+            z-index: 998;
+        }
+
+        .box-wrapper {
+            height: 300px;
+            width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .moving-box {
+            position: absolute;
+            height: 300px;
+            width: 50px;
+            background: grey;
+            z-index: -1;
+        }
+
+        .loader-text {
+            font-weight: bold;
+            font-size: 100px;
+            letter-spacing: 35px;
+            color: rgba(0, 0, 0, 0.5)
+        }
+
+        /* shobhit loader */
+    </style>
+</head>
+
+<body>
+    <div class="loading"></div>
+    <div class="loading-pulse"></div>
+    <div class="loading loading--double"></div>
+    <div class="loader-overlay">
+        <div class="box-wrapper">
+            <div class="loader-text">Product Name</div>
+            <div class="moving-box">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
